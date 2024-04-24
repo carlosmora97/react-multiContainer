@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { getValues } from '../helpers/getValues';
 
 export const useFetchValues = () => {

@@ -1,10 +1,8 @@
 
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { getIndexes as getIndexApi } from '../helpers/getIndexes';
 
-interface index{
-    number: number;
-}
+
 
 export const useFetchIndexes = () => {
   
