@@ -59,8 +59,8 @@ app.get('/values/all', async (req, res) => {
         console.log('CARLOS_VALUES', values);
         res.send(values.rows);
     } catch (error) {
-
         console.log('CARLOS',error);
+        res.status(500).json({ status: false, message: error.message, data: '' });
     }
 });
 
