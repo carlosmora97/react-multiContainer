@@ -55,10 +55,11 @@ app.get('/', (req, res) => {
 
 app.get('/values/all', async (req, res) => {
     try {
-        const values = await pgClient.query('SELECT * from values').catch((err) => console.error(err));
-    
+        const values = await pgClient.query('SELECT * from values');
+        console.log('CARLOS_VALUES', values);
         res.send(values.rows);
     } catch (error) {
+
         console.log('CARLOS',error);
     }
 });
