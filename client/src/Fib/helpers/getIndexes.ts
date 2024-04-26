@@ -4,13 +4,13 @@ import axios from "axios";
 export const getIndexes = async () => {
    
 
-    const resp = await axios.get('/api/values/all');
-    console.log('resp', resp);
+    const {data} = await axios.get('/api/values/all');
+    console.log('resp', data);
     
-    if(resp.status){
-        const {data} = resp;
-        console.log('data', data);
-        return data.map((element: { number: any; }) => element.number);
+    if(data.status){
+        const {data : datos} = data;
+        console.log('data', datos);
+        return datos.map((element: { number: any; }) => element.number);
     }
     console.log('Error en peticion');
     

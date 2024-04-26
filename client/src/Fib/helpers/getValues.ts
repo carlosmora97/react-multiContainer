@@ -4,14 +4,14 @@ import axios from "axios";
 export const getValues = async () => {
    
 
-    const resp = await axios.get('/api/values/current');
+    const {data} = await axios.get('/api/values/current');
 
-    console.log('resp', resp);
+    console.log('resp', data);
 
-    if(resp.status){
+    if(data.status){
         
     
-        return resp.data;
+        return data.data;
     }
     console.log('Error en peticion');
     
