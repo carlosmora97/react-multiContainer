@@ -56,10 +56,10 @@ app.get('/', (req, res) => {
 app.get('/values/all', async (req, res) => {
     try {
         const values = await pgClient.query('SELECT * from values');
-        console.log('CARLOS_VALUES', values);
+        console.log('CARLOS2_VALUES', values);
         res.send(values.rows);
     } catch (error) {
-        console.log('CARLOS',error);
+        console.log('CARLOS2',error);
         res.status(500).json({ status: false, message: error.message, data: '' });
     }
 });
@@ -72,7 +72,7 @@ app.get('/values/current', async (req, res) => {
             res.send(values);
         });
     } catch (error) {
-        console.log('CARLOS',error);
+        console.log('CARLOS2',error);
     }
 });
 
@@ -95,7 +95,7 @@ app.post('/values', async (req, res) => {
         });
 
     } catch (error) {
-        console.log('CARLOS',error);
+        console.log('CARLOS2',error);
     }
     
 });

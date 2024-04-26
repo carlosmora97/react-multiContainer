@@ -6,9 +6,9 @@ export const getValues = async () => {
 
     const resp = await axios.get('/api/values/current');
 
+    console.log('resp', resp);
 
     if(resp.status){
-        console.log('resp', resp);
         
     
         return resp.data;
