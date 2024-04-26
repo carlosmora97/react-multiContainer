@@ -22,8 +22,9 @@ const pgClient = new Pool({
     password: keys.pgPassword,
     port: keys.pgPort,
     ssl:
-       
-             { rejectUnauthorized: false },
+        process.env.NODE_ENV !== 'production'
+            ? false
+            : { rejectUnauthorized: false },
 });
 
 pgClient.on("connect", (client) => {
@@ -54,7 +55,7 @@ app.get('/', (req, res) => {
 
 app.get('/values/all', async (req, res) => {
     try {
-        const values = await pgClient.query('SELECT * from values');
+        const values = await pgClient.query('SELECT * from values').catch((err) => console.error(err));
     
         res.send(values.rows);
     } catch (error) {
