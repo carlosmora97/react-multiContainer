@@ -59,7 +59,7 @@ app.get('/values/all', async (req, res) => {
     
         res.send(values.rows);
     } catch (error) {
-        console.log(error);
+        console.log('CARLOS',error);
     }
 });
 
@@ -71,7 +71,7 @@ app.get('/values/current', async (req, res) => {
             res.send(values);
         });
     } catch (error) {
-        console.log(error);
+        console.log('CARLOS',error);
     }
 });
 
@@ -94,7 +94,7 @@ app.post('/values', async (req, res) => {
         });
 
     } catch (error) {
-        console.log(error);
+        console.log('CARLOS',error);
     }
     
 });
