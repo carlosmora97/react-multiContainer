@@ -11,6 +11,7 @@ export const getIndexes = async () => {
         console.log('data', data);
         return data.map((element: { number: any; }) => element.number);
     }
+    console.log('Error en peticion');
     
     return [];
     

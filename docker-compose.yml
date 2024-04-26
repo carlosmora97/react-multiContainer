@@ -12,7 +12,7 @@ services:
       - REDIS_HOST=$REDIS_HOST
       - REDIS_PORT=$REDIS_PORT
       - PGUSER=$PGUSER
-      - PGHOST=multi-docker-postgres.clyyyykwavcc.us-east-2.rds.amazonaws.com
+      - PGHOST=$PGHOST
       - PGDATABASE=$PGDATABASE
       - PGPASSWORD=$PGPASSWORD
       - PGPORT=$PGPORT
