@@ -57,9 +57,11 @@ app.get('/values/all', async (req, res) => {
     try {
         const values = await pgClient.query('SELECT * from values');
         console.log('CARLOS2_VALUES', values);
-        res.send(values.rows);
+
+        res.json({ status: true, message: '', data: values.rows })
     } catch (error) {
         console.log('CARLOS2',error);
+
         res.status(500).json({ status: false, message: error.message, data: '' });
     }
 });
@@ -69,10 +71,11 @@ app.get('/values/current', async (req, res) => {
     try {
         
         redisClient.hgetall('values', (err, values) => {
-            res.send(values);
+            res.json({ status: true, message: '', data: values })
         });
     } catch (error) {
         console.log('CARLOS2',error);
+        res.status(500).json({ status: false, message: error.message, data: '' });
     }
 });
 
@@ -90,12 +93,12 @@ app.post('/values', async (req, res) => {
     
         pgClient.query('INSERT INTO values(number) VALUES($1)', [index]);
         
-        res.send({
-            working : true
-        });
+        res.json({ status: true, message: '', data:'' })
+       
 
     } catch (error) {
         console.log('CARLOS2',error);
+        res.status(500).json({ status: false, message: error.message, data: '' });
     }
     
 });
