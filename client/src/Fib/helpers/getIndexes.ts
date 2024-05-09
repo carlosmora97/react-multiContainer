@@ -6,7 +6,7 @@ export const getIndexes = async () => {
     try {
         
         const {data} = await axios.get('/api/values/all');
-        console.log('resp', data);
+        console.log('respIndexes', data);
         
         if(data.status){
             const {data : datos} = data;
